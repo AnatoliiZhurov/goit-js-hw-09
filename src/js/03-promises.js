@@ -5,8 +5,6 @@ const elements = {
   form: document.querySelector(`.form`),
 };
 
-console.log(elements.delayInput.value);
-
 elements.form.addEventListener(`submit`, handlerSubmit);
 
 function handlerSubmit(event) {
