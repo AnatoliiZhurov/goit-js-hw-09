@@ -29,7 +29,6 @@ const options = {
         elements.startBtn.disabled = true;
         elements.input.disabled = true;
       }
-      const timerInterval = setInterval(handlerTime, 1000);
       function handlerTime() {
         const diffTime = selectedDates[0] - new Date();
         elements.days.textContent = addLeadingZero(
@@ -58,6 +57,7 @@ const options = {
     }
   },
 };
+const timerInterval = setInterval(handlerTime, 1000);
 
 flatpickr(elements.input, options);
 
