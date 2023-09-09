@@ -26,7 +26,7 @@ const options = {
       elements.startBtn.addEventListener(`click`, handlerStart);
 
       function handlerStart() {
-        timerInterval = setInterval(handlerTime, 1000);
+        timerInterval = setInterval(handlerTime, 100);
         elements.startBtn.disabled = true;
         elements.input.disabled = true;
       }
@@ -45,9 +45,7 @@ const options = {
           `${convertMs(diffTime).seconds}`
         );
 
-        console.log(diffTime);
-
-        if (diffTime <= 1000) {
+        if (diffTime <= 500) {
           clearInterval(timerInterval);
           elements.days.textContent = `00`;
           elements.hours.textContent = `00`;
@@ -83,7 +81,3 @@ function convertMs(ms) {
 
   return { days, hours, minutes, seconds };
 }
-
-const relTime = new Date();
-const secTime = relTime.getTime();
-console.log(secTime);
