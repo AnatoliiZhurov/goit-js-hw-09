@@ -10,8 +10,9 @@ const elements = {
   seconds: document.querySelector(`[data-seconds]`),
 };
 
-elements.startBtn.disabled = true;
+let timerInterval = null;
 
+elements.startBtn.disabled = true;
 const options = {
   enableTime: true,
   time_24hr: true,
@@ -25,7 +26,7 @@ const options = {
       elements.startBtn.addEventListener(`click`, handlerStart);
 
       function handlerStart() {
-        handlerTime();
+        timerInterval = setInterval(handlerTime, 1000);
         elements.startBtn.disabled = true;
         elements.input.disabled = true;
       }
@@ -57,7 +58,6 @@ const options = {
     }
   },
 };
-const timerInterval = setInterval(handlerTime, 1000);
 
 flatpickr(elements.input, options);
 
